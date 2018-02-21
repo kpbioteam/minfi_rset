@@ -1,0 +1,27 @@
+<tool id="minfi_rset" name="minfi_rset" version="0.1.0">
+    <description>store Beta values and/or M values</description>
+    <requirements>
+        <requirement type="package" version="1.24.0">bioconductor-minfi</requirement>
+    </requirements>
+    <command detect_errors="exit_code"><![CDATA[
+        Rscript  ${__tool_directory__}/minfi_rset.R  "$input1"   "$output1"
+    ]]></command>
+    <inputs>
+        <param type="data" name="input1" format="rdata" />
+    </inputs>
+    <outputs>
+        <data name="output1" format="rdata" />
+    </outputs>
+    <tests>
+        <test>
+            <param name="input1" value="MSet.rdata"/>
+            <output name="output1" file="RSet.rdata"/>
+        </test>
+    </tests>
+    <help><![CDATA[
+        RSet objects contains respectively the Beta value matrix, M value matrix and the Copy Number matrix.
+    ]]></help>
+    <citations>
+        <citation type="doi">10.1093/bioinformatics/btu049</citation>
+    </citations>
+</tool>

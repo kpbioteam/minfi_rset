@@ -1,0 +1,7 @@
+categories: [Epigenetics]
+description: Create RSet objects contain respectively the Beta value matrix, M value
+  matrix and the Copy Number matrix.
+homepage_url: https://github.com/kpbioteam/minfi_rset
+name: minfi_rset
+owner: kpbioteam
+remote_repository_url: https://github.com/kpbioteam/minfi_rset
