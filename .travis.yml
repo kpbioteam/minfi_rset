@@ -5,6 +5,7 @@ r_github_packages:
 install:
   - R -e "install.packages('devtools')"
   - R -e "devtools::install_github('rstudio/rmarkdown')"
+  - R -e "jimhester::install_github('jimhester/lintr')"
 script:
   - R -e "rmarkdown::render('test.Rmd')"
 after_success:
