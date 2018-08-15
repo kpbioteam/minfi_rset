@@ -4,9 +4,18 @@
         <requirement type="package" version="1.24.0">bioconductor-minfi</requirement>
     </requirements>
     <command detect_errors="exit_code"><![CDATA[
-        Rscript  ${__tool_directory__}/minfi_rset.R  "$input1"   "$output1"
-    ]]></command>
-    <inputs>
+        Rscript '$read_rset_script' ]]></command>
+ <configfiles>
+      <configfile name="read_rset_script"><![CDATA[
+require("minfi", quietly = TRUE)
+MSet <- get(load('$input1'))
+
+RSet <- ratioConvert(MSet, what = "both", keepCN = TRUE)
+
+save(RSet,file = '$output1')  
+  ]]> </configfile>
+        </configfiles>
+  <inputs>
         <param type="data" name="input1" format="rdata" label="Methylation Signals" />
     </inputs>
     <outputs>
